@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class CategoryController extends Controller
 {
@@ -15,6 +16,7 @@ class CategoryController extends Controller
 
     public function manage_category()
     {
-        return view('admin.category.manage');
+        $categories = Category::get();
+        return view('admin.category.manage', compact('categories'));
     }
 }
