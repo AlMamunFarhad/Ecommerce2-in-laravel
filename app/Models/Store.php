@@ -4,9 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DefaultAttribute extends Model
+class Store extends Model
 {
     protected $fillable = [
-        'attribute_value'
+        'store_name',
+        'slug',
+        'details',
+        'user_id',
     ];
+     
 }

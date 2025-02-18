@@ -262,7 +262,11 @@
                                 <a class="dropdown-item" href="#"><i class="align-middle me-1"
                                         data-feather="help-circle"></i> Help Center</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Log out</a>
+                                {{-- <a class="dropdown-item" href="#">Log out</a> --}}
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf 
+                                    <a class="dropdown-item" onclick="event.preventDefault(); this.closest('form').submit();" href="{{ route('logout') }}">Log out</a> 
+                                </form>
                             </div>
                         </li>
                     </ul>

@@ -49,7 +49,11 @@ Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
         });
         Route::controller(ProductAttributeController::class)->group(function () {
             Route::get('/product/attribute/create', 'product_attribute')->name('product.attribute.create');
+            Route::post('/product/attribute/store', 'store_attribute')->name('store.product.attribute');
             Route::get('/product/attribute/manage', 'manage_attribute')->name('product.attribute.manage');
+            Route::get('product/attribute/edit/{id}', 'edit_attribute')->name('edit.attribute');
+            Route::put('product/attribute/update/{id}', 'update_attribute')->name('update.attribute');
+            Route::delete('product/attribute/delete/{id}', 'delete_attribute')->name('delete.attribute');
         });
         Route::controller(DiscountProductController::class)->group(function () {
             Route::get('/discount/create', 'discount_product')->name('discount.create');
@@ -84,6 +88,10 @@ Route::middleware(['auth', 'verified', 'role:vendor'])->group(function () {
         Route::controller(SellerStoreController::class)->group(function () {
             Route::get('/store/create', 'index')->name('vendor.store');
             Route::get('/store/manage', 'manage')->name('vendor.store.manage');
+            Route::post('store/publish', 'store_publish')->name('store.publish');
+            Route::get('edit/store/{id}', 'edit_store')->name('edit.store');
+            Route::put('update/store/{id}', 'update_store')->name('update.store');
+            Route::delete('delete/store/{id}', 'delete_store')->name('delete.store');
         });
     });
 });
